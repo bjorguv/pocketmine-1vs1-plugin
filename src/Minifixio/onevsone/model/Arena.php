@@ -79,6 +79,7 @@ class Arena{
 		
 		Server::getInstance()->getScheduler()->cancelTask($this->countdownTaskHandler->getTaskId());
 		
+		
 		$player1 = $this->players[0];
 		$player2 = $this->players[1];
 		
@@ -90,6 +91,10 @@ class Arena{
 		$player1->teleport($pos_player1, 90, 0);
 		$player2->teleport($pos_player2, -90, 0);
 		
+		// Set Gamemode
+		foreach ($this->players as $player){
+			$this->setGamemode
+		}
 		// Give kit
 		foreach ($this->players as $player){
 			$this->giveKit($player);
@@ -116,7 +121,10 @@ class Arena{
 	public function abortDuel(){
 		Server::getInstance()->getScheduler()->cancelTask($this->countdownTaskHandler->getTaskId());
 	}
-	
+		// Sets gamemode
+	private function setGamemode(Player $player){
+		$player->gamemode = (1) $newGamemode;
+	}
 	private function giveKit(Player $player){
 		// Clear inventory
 		$player->getInventory()->clearAll();
@@ -136,7 +144,10 @@ class Arena{
 		// Set his life to 20
 		$player->setHealth(20);
 		$player->removeAllEffects();
-
+		
+	
+		
+	}
    }
    
    /**
